@@ -1,7 +1,7 @@
 # DIW_DWEC
 <h2>Repositorio Principal para los modulos de DIW y DWEC</h2>
 <p>Aquí se irán subiendo todos los ejercicios y todo lo que se vaya haciendo en clase.</p>
-<p>Pasos para replicar este repositorio en local con eclipse:</p>
+<p>Pasos para replicar este repositorio en local con VSCode:</p>
 <ol>
       <li>Abrir VSCode</li>
       <li>(Si no está la terminal abierta) Abrir la ventana terminal de VSCode</li>
