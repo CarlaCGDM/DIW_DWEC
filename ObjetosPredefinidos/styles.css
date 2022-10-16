@@ -2,15 +2,15 @@ h1,
 h2,
 h3,
 p {
+  padding-top: 10px;
   text-align: center;
 }
-
 
 #pResultado {
   padding-top: 10px;
 }
 
-#pResultadoAhorcado{
+#pResultadoAhorcado {
   margin-top: 20px;
 }
 
@@ -30,26 +30,47 @@ p {
   column-gap: 10px;
 }
 
+#myHeader {
+  background-color: rgb(73, 73, 73);
+  height: 75px;
+  box-sizing: border-box;
+  width: 100%;
+  padding-top: 10px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.sticky {
+  position: sticky; /*When the element position is set to fixed it is removed from the normal document flow, which means no space is created for this element. The element is then becomes positioned relative to the viewport.*/
+  top: 0;
+}
+
 .item1 {
   padding: 10px;
   background-color: yellow;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .item2 {
   padding: 10px;
   background-color: red;
+  border-radius: 20px;
 }
 
 .item3 {
   padding: 10px;
   background-color: green;
+  border-radius: 20px;
 }
 
 .letrasContainer {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-   gap: 10px;
+  gap: 10px;
 }
 
 .letra {
@@ -70,3 +91,5 @@ img {
   margin-right: auto;
   margin-top: 20px;
 }
+
+

@@ -31,13 +31,16 @@ function comprobarSiGanador() {
 
     let divResultadoAhorcado = document.querySelector("#divResultadoAhorcado");
     divResultadoAhorcado.appendChild(imagen);
+    ponerDisabled(true);
   } else if (maxFallos === 0) {
     let imagen = document.createElement("img");
     imagen.setAttribute("src", "media/ahorcado.jpg");
 
     let divResultadoAhorcado = document.querySelector("#divResultadoAhorcado");
     divResultadoAhorcado.appendChild(imagen);
+    ponerDisabled(true);
   }
+
 }
 
 /**
@@ -68,11 +71,8 @@ const aceptarPalabra = () => {
   console.log(arrPalabraOculta);
   console.log(arrPalabraVisible);
 
-  const inputLetra = document.querySelectorAll("div input[class=letra]");
-  for (let i = 0; i < inputLetra.length; i++) {
-    inputLetra[i].disabled = false;
-    inputLetra[i].addEventListener("click", comprobarLetra);
-  }
+  //Ponemos las letras de nuestro tablero a disabled = false
+ ponerDisabled(false)
 
   //ESCRIBIR EN EL HTML LO QUE CONTIENE arrPalabraOculta
   actualizarPalabra();
@@ -119,6 +119,13 @@ const comprobarLetra = (e) => {
   }
 };
 
+const ponerDisabled = (bool = true) => {
+  const inputLetra = document.querySelectorAll("div input[class=letra]");
+  for (let i = 0; i < inputLetra.length; i++) {
+    inputLetra[i].disabled = bool;
+  }
+}
+
 /*
 FUNCION USADA PARA INICIALIZAR DIFERENTES ELEMENTOS EN NUESTRA PAGINA
 */
@@ -131,7 +138,6 @@ function onIniciar() {
 
   //Inicializamos los botones que contienen las letras
   const inputLetra = document.querySelectorAll("div input[class=letra]");
-
   for (let i = 0; i < inputLetra.length; i++) {
     inputLetra[i].disabled = true;
     inputLetra[i].addEventListener("click", comprobarLetra);
