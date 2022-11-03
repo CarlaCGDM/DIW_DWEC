@@ -73,12 +73,9 @@ const checkForm = (e) => {
 }
 
 function onIniciar() {
-  console.log("Uso esta funcion para inicializar elementos de la pagina");
   const formulario = document.querySelector("#formularioEjercicio");
   formulario.addEventListener("submit", checkForm);
-
   putInfo()
-
 }
 
 window.onload = onIniciar();
