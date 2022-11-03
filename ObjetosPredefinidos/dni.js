@@ -46,7 +46,7 @@ const comprobarDNI = () => {
 
   if (!dniValido) {
     alert("Introduzca un DNI valido");
-    return
+    return;
   }
 
   //Si todo ha ido bien, podemos continuar
@@ -79,23 +79,22 @@ const comprobarDNI = () => {
 
 const generarLetraDNI = () => {
   let expRegDni = /^\d{8}$/;
-   dniSinLetra = document.querySelector("#inputDNIGenerator").value;
-   dniSinLetra.trim();
-   console.log(dniSinLetra);
+  dniSinLetra = document.querySelector("#inputDNIGenerator").value;
+  dniSinLetra.trim();
+  console.log(dniSinLetra);
 
-   let dniValido = expRegDni.test(dniSinLetra);
-   console.assert(expRegDni.test(dniSinLetra), "formato no valido");
+  let dniValido = expRegDni.test(dniSinLetra);
+  console.assert(expRegDni.test(dniSinLetra), "formato no valido");
 
-   if (!dniValido) {
-     alert("Introduzca un DNI valido");
-     return
-   }
+  if (!dniValido) {
+    alert("Introduzca un DNI valido");
+    return;
+  }
 
-   let h3DNIConletra = document.querySelector("#h3DNIConletra");
-   h3DNIConletra.innerHTML =
-     dniSinLetra + "-" + letrasValidas[Number(dniSinLetra) % 23];
-
-}
+  let h3DNIConletra = document.querySelector("#h3DNIConletra");
+  h3DNIConletra.innerHTML =
+    dniSinLetra + "-" + letrasValidas[Number(dniSinLetra) % 23];
+};
 
 function onIniciar() {
   console.log("Cargo script de logicaDNI.js");

@@ -1,0 +1,16 @@
+html body {
+    background-color: rgb(209, 209, 209);
+}
+
+.alinearCentro {
+    display: flex;
+    justify-content: center;
+}
+
+.contenedorForm {
+    background-color: antiquewhite;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+    width: 80%;
+}

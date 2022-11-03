@@ -15,6 +15,17 @@ function onIniciar() {
   sticky = myHeader.offsetTop;
 
   window.onscroll = ponerSticky;
+
+  console.log(window)
+  console.log(window.navigator);
+
+  console.log(navigator.language)
+
+  console.log(history.length)
+
+  console.log(document);
+
+  
 }
 
 window.onload = onIniciar();

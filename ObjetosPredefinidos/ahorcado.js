@@ -139,7 +139,7 @@ function onIniciar() {
   //Inicializamos los botones que contienen las letras
   const inputLetra = document.querySelectorAll("div input[class=letra]");
   for (let i = 0; i < inputLetra.length; i++) {
-    inputLetra[i].disabled = true;
+    //inputLetra[i].disabled = true;
     inputLetra[i].addEventListener("click", comprobarLetra);
   }
 }
