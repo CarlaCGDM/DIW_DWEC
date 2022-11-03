@@ -18,12 +18,8 @@ const dirValidas = [
 Crear una función que compruebe si el usuario y el email ya está registrado en el sistema
 Mostrar por pantalla si:
  - El usuario ya existe
- - El email ya existe
 
- ANTES de realizar tal comprobación, primero se ha de comprobar el formato del email:
- Email-> debe terminar con "@g.educaand.es" No se especifica nada más.
-
- Si todo va bien, almacenar las variables comprobadas junto con la contraseña en el objeto predefinido LocalStorage
+ Si todo va bien, almacenar el usuario y la contraseña en el objeto predefinido LocalStorage
 */
 const checkUserEmail = () => {
   console.log("checkUserEmail");
@@ -62,7 +58,6 @@ Ejemplo:
 KEYS para el objeto LocalStorage
 Usuario -> "user"
 Password -> "password"
-Email -> "email"
 Direccion Válida -> "direction"
 */
 const putInfo = () => {
