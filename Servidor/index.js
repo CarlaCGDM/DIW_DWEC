@@ -2,6 +2,8 @@ const express = require("express") //Tenemos la biblioteca cargada
 
 const app = express() //Aquí tenemos una aplicación "express"
 
+const fecha = new Date()
+
 //VAMOS A VER LO QUE ES UNA FUNCIÓN MIDDLEWARE
 
 //El primer ejemplo de middleware es el más sencillo.
@@ -11,18 +13,35 @@ const app = express() //Aquí tenemos una aplicación "express"
 //response: es la respuesta que da el servidor al navegador
 //next: es la siguiente función middleware que se ejecutaría
 app.use((req, res, next) => {
-        console.log("Se ha realizado una petición")
-        console.log("Metodo utilizado", req.method)
-        console.log("URL usada", req.originalUrl)
-        console.log("CONEXION REALIZA CORRECTAMENTE");
+        console.log(`Se ha realizado una petición: [${fecha}]`)
         next()
     },
     (req, res, next) => {
         console.log("Siguiente funcion middleware")
-        res.send("<h1>Bienvenid@</h1>")
 
+        if(req.method === "GET" || req.method === "POST"){
+            next()
+        } else {
+            res.status(403)
+            res.send("<h1>NO PERMITIDO</h1>");
+        }
     }
 )
+
+
+app.get("/", (req, res, next) => {
+  console.log("SE HA ENTRADO EN INDEX");
+  res.send("<h1>BIENVENID@</h1>");
+
+});
+
+app.get("/productos", (req, res, next) => {
+  console.log("SE HA ENTRADO EN PRODUCTOS");
+  res.send("<h1>PRODUCTO 1</h1>");
+});
+
+
+
 
 //DEFINIMOS EL PUERTO POR DONDE ESCUCHARÁ NUESTRO SERVER
 const PORT = 3001;
