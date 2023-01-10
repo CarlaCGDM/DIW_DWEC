@@ -5,6 +5,8 @@ const app = express() //Aquí tenemos una aplicación "express"
 //OBJETOS DEL PROGRAMA
 const fecha = new Date()
 const datos = require("./Datos/productos.json")
+const datosArr = Object.entries(datos.productos)
+//console.log(datosArr)
 
 
 //VAMOS A VER LO QUE ES UNA FUNCIÓN MIDDLEWARE
@@ -40,24 +42,21 @@ app.get("/", (req, res, next) => {
 
 app.get("/productos", (req, res, next) => {
   
-    console.log("Consultando datos...")
+    console.log("Consultando productos...")
     res.send(datos.productos)
 
 });
 
 app.get("/productos/:producto", (req, res, next) => {
-  console.log("Consultando datos...");
+  console.log("Consultando prpoducto...");
   
   const parametro = req.params.producto
 
-  const producto = datos.productos[parametro]
-  console.log(producto)
+  const producto = datosArr.find(p => p[0] === parametro)
+
   res.send(producto)
   
 });
-
-
-
 
 //DEFINIMOS EL PUERTO POR DONDE ESCUCHARÁ NUESTRO SERVER
 const PORT = 3001;
