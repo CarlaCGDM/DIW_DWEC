@@ -1,0 +1,9 @@
+En este ejercicio, vamos a practicar en el uso del routing de express y de los parámetros de ruta.
+Sigue los siguientes pasos:
+
+- Modifica el código para que ya no haga el filtrado por rutas que implementamos en el ejer1
+- Implementa varias funciones middleware para el método get y las rutas indicadas a continuación:
+
+- Para GET / -> Enviar una landing page <h1>Bienvenid@</h1>
+- Para GET /:pj -> Enviar el nombre del personaje que se haya en el archivo JSON junto con su "lore" y el 
+rol principal del personaje
