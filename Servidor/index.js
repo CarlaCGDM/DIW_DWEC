@@ -4,7 +4,7 @@ const app = express() //Aquí tenemos una aplicación "express"
 
 //OBJETOS DEL PROGRAMA
 const fecha = new Date()
-var datos = require("./Datos/productos.json")
+const datos = require("./Datos/productos.json")
 
 
 //VAMOS A VER LO QUE ES UNA FUNCIÓN MIDDLEWARE
@@ -50,12 +50,9 @@ app.get("/productos/:producto", (req, res, next) => {
   
   const parametro = req.params.producto
 
-  if (parametro === "cereales") res.send(datos.productos.cereales);
-  else if (parametro === "agua") res.send(datos.productos.agua);
-  else if (parametro === "colacao") res.send(datos.productos.colacao);
-
-  
-
+  const producto = datos.productos[parametro]
+  console.log(producto)
+  res.send(producto)
   
 });
 
