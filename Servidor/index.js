@@ -2,7 +2,10 @@ const express = require("express") //Tenemos la biblioteca cargada
 
 const app = express() //Aquí tenemos una aplicación "express"
 
+//OBJETOS DEL PROGRAMA
 const fecha = new Date()
+var datos = require("./Datos/productos.json")
+
 
 //VAMOS A VER LO QUE ES UNA FUNCIÓN MIDDLEWARE
 
@@ -36,8 +39,24 @@ app.get("/", (req, res, next) => {
 });
 
 app.get("/productos", (req, res, next) => {
-  console.log("SE HA ENTRADO EN PRODUCTOS");
-  res.send("<h1>PRODUCTO 1</h1>");
+  
+    console.log("Consultando datos...")
+    res.send(datos.productos)
+
+});
+
+app.get("/productos/:producto", (req, res, next) => {
+  console.log("Consultando datos...");
+  
+  const parametro = req.params.producto
+
+  if (parametro === "cereales") res.send(datos.productos.cereales);
+  else if (parametro === "agua") res.send(datos.productos.agua);
+  else if (parametro === "colacao") res.send(datos.productos.colacao);
+
+  
+
+  
 });
 
 
