@@ -1,5 +1,5 @@
-# DIW_DWEC
-<h2>Repositorio Principal para los modulos de DIW y DWEC</h2>
+# HLC
+<h2>Repositorio Principal para el módulo de HLC</h2>
 <p>Aquí se irán subiendo todos los ejercicios y todo lo que se vaya haciendo en clase.</p>
 <p>Pasos para replicar este repositorio en local con VSCode:</p>
 <ol>
