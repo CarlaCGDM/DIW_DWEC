@@ -6,10 +6,14 @@ recibido una petición junto con la fecha. Desde ahí, se llamará a otra funcio
 
 - La siguiente funcion middleware comprobará que el método utilizado desde el cliente es uno de los aceptados
 por nuestra API. Los únicos métodos que acepta nuestra API son los métodos GET y POST
-Si recibiera un método que no es aceptado, debe responder con un código 403: Forbidden
+Si recibiera un método que no es aceptado, debe responder al cliente con:
+    * Un código de estado 403: Forbidden
+    * Un <h3>Operacion no permitida</h3>
 Si el método es correcto, llama a otra función middleware
 
 - La última función middleware se encargará de comprobar si se está llamando a una ruta válida dentro de nuestra
 API. La única ruta válida en nuestra API es la de "/"
-Si recibiera una ruta no válida, debe responder con un código 404: Page not found y un mensaje descriptivo
-Si el método es correcto, devuelve un mensaje <h1>Bienvenid@</h1>
+Si recibiera una ruta no válida, debe responder al cliente con:
+    * Un código de estado 404: Page not found
+    * Un <h3>Recurso no encontrado</h3>
+Si el método es correcto, responde al cliente con <h1>Bienvenid@</h1>
