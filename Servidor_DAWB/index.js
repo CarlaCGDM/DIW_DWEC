@@ -4,6 +4,8 @@ const express = require("express")
 const app = express()
 
 const datos = require("./Datos/productos.json")
+const datosArr = Object.entries(datos.productos)
+
 
 //FUNC MIDDLEWARE
 //request -> req -> Objeto que contiene la petición HTTP Cliente -> Servidor
@@ -23,8 +25,19 @@ app.use(
 
 app.get("/" , (req, res, next)=>{
   console.log(`\x1b[34m%s\x1b[0m`, `[GET] Dentro de peticion GET`)
-  res.end()
+  res.send(datos)
 })
+
+app.get("/:producto", (req, res, next) => {
+
+  let parametro = req.params.producto
+  console.log(`\x1b[34m%s\x1b[0m`, `[GET] Dentro de peticion de ${parametro}`);
+  
+  let producto = datosArr.find( producto => parametro===producto[0] )
+  console.log(producto)
+  res.send(producto)
+  
+});
 
 app.post("/", (req, res, next) => {
   console.log(`\x1b[34m%s\x1b[0m`, `[POST] Dentro de peticion POST`);
