@@ -1,7 +1,7 @@
 {
-  "name": "servidor_dawb",
+  "name": "servidorlol",
   "version": "1.0.0",
-  "description": "servidor para la clase de dawb usando express",
+  "description": "Servidor Ejercicio LoL",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
