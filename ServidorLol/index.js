@@ -29,6 +29,7 @@ const process = require("process");
 
 //Variables globales
 const today = new Date().toLocaleString();
+const datosPersonajes = require("./data/personajes_es.json")
 
 //Permitimos las peticiones cors
 app.use(cors())
@@ -45,11 +46,54 @@ app.get("/", (req, res, next)=>{
   //http://expressjs.com/en/api.html#res.sendFile
   //https://stackoverflow.com/questions/26079611/node-js-typeerror-path-must-be-absolute-or-specify-root-to-res-sendfile-failed
   res.sendFile("/html/index.html", { root: __dirname });
-
-  //https://stackoverflow.com/questions/14953792/how-src-attribute-of-img-tag-is-executed
-  //Explicacion de como se ejecuta src de una img en html
 })
 
+app.get("/datosPersonajes.json", (req, res, next) => {
+  //http://expressjs.com/en/api.html#res.sendFile
+  //https://stackoverflow.com/questions/26079611/node-js-typeerror-path-must-be-absolute-or-specify-root-to-res-sendfile-failed
+  res.send(datosPersonajes);
+});
+
+app.get("/logica.js", (req, res, next) => {
+  //http://expressjs.com/en/api.html#res.sendFile
+  //https://stackoverflow.com/questions/26079611/node-js-typeerror-path-must-be-absolute-or-specify-root-to-res-sendfile-failed
+  res.sendFile("/js/logica.js", { root: __dirname });
+});
+
+app.get("/styles.css", (req, res, next) => {
+  //http://expressjs.com/en/api.html#res.sendFile
+  //https://stackoverflow.com/questions/26079611/node-js-typeerror-path-must-be-absolute-or-specify-root-to-res-sendfile-failed
+  res.sendFile("/css/styles.css", { root: __dirname });
+});
+
+app.get("/sprites/campeonesMD/:nombrePj", (req, res, next)=>{
+  //https://stackoverflow.com/questions/14953792/how-src-attribute-of-img-tag-is-executed
+  //Explicacion de como se ejecuta src de una img en html
+  let nombrePj = req.params.nombrePj;
+  console.log(`\x1b[36m%s\x1b[0m`, `[GET] Pidiendo PJ: ${nombrePj}`);
+  res.sendFile(`/images/campeonesMD/${nombrePj}.jpg`, { root: __dirname });
+});
+
+app.get("/favicon.ico", (req, res, next) => {
+  //http://expressjs.com/en/api.html#res.sendFile
+  //https://stackoverflow.com/questions/26079611/node-js-typeerror-path-must-be-absolute-or-specify-root-to-res-sendfile-failed
+  res.sendFile("/images/logo/favicon.ico", { root: __dirname });
+});
+
+app.get("/images/logo/logo_vector.svg", (req, res, next) => {
+  //http://expressjs.com/en/api.html#res.sendFile
+  //https://stackoverflow.com/questions/26079611/node-js-typeerror-path-must-be-absolute-or-specify-root-to-res-sendfile-failed
+  res.sendFile("/images/logo/logo_vector.svg", { root: __dirname });
+});
+
+
+//PARA DEFINIR FUNCIONES MIDDLEWARE DE ERROR
+//Definimos la funcion mdw de igual manera que siempre, pero con la salvedad que 
+//en este caso acepta 4 elementos en vez de 3.
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Something broke!");
+});
 
 //PONEMOS EL SERVIDOR A ESCUCHAR POR EL PUERTO 3001
 const PORT = process.env.PORT || 3001

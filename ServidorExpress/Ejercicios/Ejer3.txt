@@ -1,0 +1,17 @@
+Los archivos a devolver están en views_ejerc
+
+Ya sabemos definir varios "entrypoints" para nuestro servidor.
+Ahora vamos a devolver los elementos típicos que se piden a un servidor web.
+
+Tenemos que definir un punto de entrada para cuando se pide la raíz, es decir, "/".
+    - Cuando solicitan "/" -> Devolver index.html
+
+Hemos estado viendo que por defecto se solicita "favicon.ico" a nuestro servidor. Debemos
+definir un punto de entrada para favicon.ico
+    - Cuando solicitan "/favicon.ico" -> Devolver un icono
+
+En este punto, cuando recarguemos nuestra página, veremos que se realizan muchas otras peticiones
+a nuestro server.
+    - Se pide un logica.js
+    - Se pide un styles.css
+    - Resolver los dos puntos de entrada para devolver los archivos solicitados
