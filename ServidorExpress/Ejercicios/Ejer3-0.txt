@@ -1,4 +1,0 @@
-En este ejercicio, tenéis que devolver al Cliente
-un icono para la pestaña de vuestra página web
-- Tenéis que definir un punto de acceso para favicon.ico
-- Y ahí, en una func middleware, devolver el icono que queráis
