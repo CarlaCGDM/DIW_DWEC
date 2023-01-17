@@ -1,4 +1,4 @@
-Los archivos a devolver están en views_ejerc
+Los archivos a devolver están en la carpeta views (salvo el favicon.ico)
 
 Ya sabemos definir varios "entrypoints" para nuestro servidor.
 Ahora vamos a devolver los elementos típicos que se piden a un servidor web.
