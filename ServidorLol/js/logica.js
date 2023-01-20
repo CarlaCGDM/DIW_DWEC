@@ -9,9 +9,9 @@ var personajes;
 * Función que inicializa la página. Realiza una petición a la API del Lol para obtener los personajes, rellena el select, etc etc.
 */
 async function inicializarPagina() {
-    await fetch('datosPersonajes.json')
-        .then(response => response.json())
-        .then(data => personajes = data.data);
+    await fetch("/datosPersonajes.json")
+      .then((response) => response.json())
+      .then((data) => (personajes = data.data));
     console.log(personajes);
     populateSelect();
 

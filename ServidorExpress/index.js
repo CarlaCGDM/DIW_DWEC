@@ -29,6 +29,16 @@ app.get("/", (req, res, next)=>{
   res.sendFile(__dirname+"/views/index.html")
 })
 
+app.get("/logica.js", (req, res, next) => {
+  console.log(`\x1b[34m%s\x1b[0m`, `[GET] Dentro de peticion GET`);
+  res.sendFile(__dirname + "/views/logica.js");
+});
+
+app.get("/styles.css", (req, res, next) => {
+  console.log(`\x1b[34m%s\x1b[0m`, `[GET] Dentro de peticion GET`);
+  res.sendFile(__dirname + "/views/styles.css");
+});
+
 app.get("/:pj", (req, res, next) => {
   let personaje = req.params.pj
   
@@ -44,6 +54,12 @@ app.post("/", (req, res, next) => {
   console.log(`\x1b[34m%s\x1b[0m`, `[POST] Dentro de peticion POST`);
   res.end()
 });
+
+app.use((req, res, next)=>{
+  res.status(404).send(
+    `<h1>404 Page not Found</h1>`
+  );
+})
 
 const PORT = 3001
 app.listen(PORT, ()=>{
