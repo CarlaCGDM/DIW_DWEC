@@ -24,42 +24,7 @@ app.use(
   }
 );
 
-app.get("/", (req, res, next)=>{
-  console.log(`\x1b[34m%s\x1b[0m`, `[GET] Dentro de peticion GET`);
-  res.sendFile(__dirname+"/views/index.html")
-})
-
-app.get("/logica.js", (req, res, next) => {
-  console.log(`\x1b[34m%s\x1b[0m`, `[GET] Dentro de peticion GET`);
-  res.sendFile(__dirname + "/views/logica.js");
-});
-
-app.get("/styles.css", (req, res, next) => {
-  console.log(`\x1b[34m%s\x1b[0m`, `[GET] Dentro de peticion GET`);
-  res.sendFile(__dirname + "/views/styles.css");
-});
-
-app.get("/:pj", (req, res, next) => {
-  let personaje = req.params.pj
-  
-  let personajeData = datosArr.find( pers => pers[0] === personaje)
-  console.log(personajeData)
-  
-  res.send(
-    `<h1>${personajeData[0]}</h1><h2>${personajeData[1].blurb}</h2><h3>${personajeData[1].tags[0]}</h3>`
-  );
-});
-
-app.post("/", (req, res, next) => {
-  console.log(`\x1b[34m%s\x1b[0m`, `[POST] Dentro de peticion POST`);
-  res.end()
-});
-
-app.use((req, res, next)=>{
-  res.status(404).send(
-    `<h1>404 Page not Found</h1>`
-  );
-})
+app.use(express.static("views"))
 
 const PORT = 3001
 app.listen(PORT, ()=>{
