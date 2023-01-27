@@ -3,7 +3,6 @@ const app = express()
 const rutasV1 = require("./routes/v1/indexRoutes")
 
 
-
 app.use("/api/v1", rutasV1.router)
 
 const PORT = process.env.PORT || 3001

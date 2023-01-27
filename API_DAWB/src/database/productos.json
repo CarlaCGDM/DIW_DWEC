@@ -1,0 +1,33 @@
+{
+  "productos": {
+    "cereales": {
+      "nombre": "Cereales",
+      "precio": 3.45
+    },
+    "colacao": {
+      "nombre": "Colacao",
+      "precio": 1.45
+    },
+    "aguamineral": {
+      "nombre": "Agua mineral",
+      "precio": 1
+    },
+    "prueba": {
+      "nombre": "prueba",
+      "precio": "2",
+      "fecha": "2023-01-22T22:12:48.091Z"
+    },
+    "monster": {
+      "nombre": "monster",
+      "precio": "3",
+      "fecha": "2023-01-22T22:13:45.531Z"
+    },
+    "cubataderonconcocacola": {
+      "nombre": "cubata de ron con coca cola",
+      "precio": 4.5,
+      "id": "e0e27d3b-87b0-489f-b846-be5846717888",
+      "createdAt": "2023-01-23T09:07:26.653Z",
+      "updatedAt": "2023-01-23T09:07:26.653Z"
+    }
+  }
+}

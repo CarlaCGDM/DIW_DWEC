@@ -59,4 +59,12 @@ SESSION VS COOKIE
 https://stackoverflow.com/questions/47515991/how-to-setup-an-authentication-middleware-in-express-js
 https://www.youtube.com/watch?v=o14rCK37RAY
 https://www.youtube.com/watch?v=bywKD040J_o
+
+SOAP VS REST
+https://www.guru99.com/comparison-between-web-services.html
+
+PUT VS POST
+https://datatracker.ietf.org/doc/html/rfc7231#section-4.3.4
+https://datatracker.ietf.org/doc/html/rfc7231#section-4.3.3
+
 */
