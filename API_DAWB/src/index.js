@@ -2,8 +2,15 @@ const express = require("express")
 const app = express()
 const rutasV1 = require("./routes/v1/indexRoutes")
 
-
+app.use(express.json())
 app.use("/api/v1", rutasV1.router)
+
+app.use(middlewaremia(mensaje))
+
+app.use((err, req, res, next) => {
+  console.log("Esta funcion captura todos los erroes de express")
+  res.status(500).end()
+})
 
 const PORT = process.env.PORT || 3001
 app.listen(PORT, ()=>{

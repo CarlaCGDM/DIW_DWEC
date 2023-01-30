@@ -1,3 +1,4 @@
+const { next } = require("cheerio/lib/api/traversing");
 const productosService = require("../services/productosService");
 /*
 CONTROLADOR
@@ -9,18 +10,20 @@ En el controlador simplemente "se reparte el juego".
 const getAllProducts = (req, res, next) => {
   const allProducts = productosService.getAllProducts();
   res.send(allProducts).end();
-  console.log("\x1b[34m%s\x1b[0m", `[GET /productos] - OK`);
+  res.locals.mensaje = "OK";
+  next();
 };
 
 /*
   Ejercicio para la clase, implementa la funcionalidad que debe tener "getOneProduct"
   Realiza la división entre "controlador" "servicio" "modelo"
 */
-const getOneProduct = (req, res) => {
+const getOneProduct = (req, res, next) => {
   let nombreProducto = req.params.prod;
   const producto = productosService.getOneProduct(nombreProducto);
   res.send(producto).end();
-  console.log("\x1b[34m%s\x1b[0m", `[GET /productos/${nombreProducto}] - OK`);
+  res.locals.mensaje = "OK";
+  next();
 };
 
 //En esta funcion se define el método post de un producto
@@ -28,15 +31,12 @@ const getOneProduct = (req, res) => {
 //valida que existen datos en el cuerpo de la petición y que
 //si se inserta, manda una página con el producto insertado
 //y si no, envía el código de estado correspondiente y una página de error
-const postOneProduct = (req, res) => {
+const postOneProduct = (req, res, next) => {
   const { body } = req;
 
   if (!body.nombre || !body.precio) {
-    res.status(400).send("<h1>Datos incompletos</h1>").end();
-    console.log(
-      "\x1b[34m%s\x1b[0m",
-      `[POST /productos/] - NOT OK`
-    );
+    res.status(400).send({ mensaje: "Datos Incompletos" }).end();
+    res.locals.mensaje = "NOT OK";
   } else {
     const newProduct = {
       nombre: body.nombre,
@@ -47,33 +47,27 @@ const postOneProduct = (req, res) => {
 
     if (createdProduct) {
       res.send(createdProduct).end();
-      console.log(
-        "\x1b[34m%s\x1b[0m",
-        `[POST /productos/] - OK`
-      );
+      res.locals.mensaje = "OK";
     } else {
-      res.status(409).send("<h1>Entrada duplicada</h1>").end();
-      console.log(
-        "\x1b[34m%s\x1b[0m",
-        `[POST /productos/] - NOT OK`
-      );
+      res.status(409).send({ mensaje: "Entrada duplicada" }).end();
+      res.locals.mensaje = "NOT OK";
     }
   }
+  next();
 };
 
-const putOneProduct = (req, res) => {
+const putOneProduct = (req, res, next) => {
   let nombreProducto = req.params.prod;
   res.send(`<h1>PUT ${nombreProducto}</h1>`).end();
-  console.log("\x1b[34m%s\x1b[0m", `[PUT /productos/${nombreProducto}] - OK`);
+  res.locals.mensaje = "OK";
+  next();
 };
 
-const deleteOneProduct = (req, res) => {
+const deleteOneProduct = (req, res, next) => {
   let nombreProducto = req.params.prod;
   res.send(`<h1>DELETE ${nombreProducto}</h1>`).end();
-  console.log(
-    "\x1b[34m%s\x1b[0m",
-    `[DELETE /productos/${nombreProducto}] - OK`
-  );
+  res.locals.mensaje = "OK";
+  next();
 };
 
 module.exports.getAllProducts = getAllProducts;

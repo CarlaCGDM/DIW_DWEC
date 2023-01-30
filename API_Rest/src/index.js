@@ -1,50 +1,31 @@
-const express = require("express")
-const cookieParser = require("cookie-parser")
-const {v4: uuid} = require("uuid")
-const v1 = require("./v1/routes/indexRoutes")
+const express = require("express");
+const cookieParser = require("cookie-parser");
+const { v4: uuid } = require("uuid");
+const v1 = require("./v1/routes/indexRoutes");
+const utils = require("./utils/consoleInfo")
+const auth = require("./utils/authentication")
 
-const app = express()
-const PORT = process.env.PORT || 3001
+const app = express();
+const PORT = process.env.PORT || 3001;
 
-
-app.use(express.json())
-app.use(cookieParser())
-app.use((req,res,next)=>{
-    let date = new Date().toLocaleTimeString()
-    console.log("\x1b[41m%s\x1b[0m", `[info] ${date} peticion: ${req.method} ${req.originalUrl}`);
-    next()
-})
-
-//MIDDLEWARE PARA AUTENTICAR USER ***AÚN EN DESARROLLO
-let sessions = []
-app.use((req, res, next) => {
-  const {cookies} = req
-  if(!cookies.sessionId){
-    console.log("Sesion creada")
-    const sessionId = uuid();
-    sessions.push({sessionId})
-    res.cookie("sessionId", sessionId, {httpOnly: true})
-  } else {
-    console.log(sessions.find(session=>session.sessionId === cookies.sessionId))
-  }
-  next()
-});
-
-app.use("/api/v1", v1)
+app.use(express.json());
+app.use(cookieParser());
+app.use(utils.infoBeginOfRequest);
+app.use(auth.authenticateUser)
+app.use("/api/v1", v1, utils.infoEndOfRequest);
 
 //FUNCION Genérica de gestión de errores
-app.use((err, req, res, next)=>{
-  console.error("ERROR:"+err.stack)
-  res.end()
-})
+app.use((err, req, res, next) => {
+  console.error("ERROR:" + err.stack);
+  res.end();
+});
 
-
-app.listen(PORT, ()=>{
-    console.log(
-      "\x1b[41m%s\x1b[0m",
-      `[start] 🚀 Server listening on port ${PORT} 🚀`
-    );
-})
+app.listen(PORT, () => {
+  console.log(
+    "\x1b[41m%s\x1b[0m",
+    `[start] 🚀 Server listening on port ${PORT} 🚀`
+  );
+});
 
 /*
 TUTORIAL

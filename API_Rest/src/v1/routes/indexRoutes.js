@@ -7,7 +7,8 @@ const productos = require("./productosRoutes")
 router.route("/")
     .get((req, res, next)=>{
         res.send("<h1>Hola Mundo</h1>").end();
-        console.log("\x1b[34m%s\x1b[0m", `[GET /] - OK`);
+        res.locals.mensaje = "OK"
+        next()
     });
 router.use("/productos", productos);
 

@@ -10,7 +10,7 @@ const getOneProduct = (nombre) => {
     return producto
 }
 
-/* FUNCION DE PRUEBA PARSEANDO EL JSON A ARRAY (DON'T DEAD OPEN INSIDE)
+/*FUNCION DE PRUEBA PARSEANDO EL JSON A ARRAY (DON'T DEAD OPEN INSIDE)
 const createOneProduct2 = (newProduct) => {
     //Para poder tratar el JSON y poder buscar en él, tenemos el problema
     //que por defecto, dicho JSON es simplemente un objeto que contiene otros objetos.

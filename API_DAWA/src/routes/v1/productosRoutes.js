@@ -6,7 +6,7 @@ router.get("/") //TODOS LOS PROD
 router.post("/") //CREATE 1 PROD
 
 router.get("/:prod") //OBTENER 1 PROD
-router.delete("/:prod") //OBTENER
+router.delete("/:prod") //Eliminar 1 producto
 router.put("/:prod") //UPDATE
 
 
