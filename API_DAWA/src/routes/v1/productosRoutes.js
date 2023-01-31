@@ -1,13 +1,19 @@
-const express = require("express");
-const router = express.Router();
+const express = require("express")
+const router = express.Router()
+const productosController = require("../../controllers/productosController")
 
-//    v1/api/productos/
-router.get("/") //TODOS LOS PROD
-router.post("/") //CREATE 1 PROD
+//URL AQUí: /v1/api/productos
 
-router.get("/:prod") //OBTENER 1 PROD
-router.delete("/:prod") //Eliminar 1 producto
-router.put("/:prod") //UPDATE
+router
+  .route("/")
+  .get(productosController.getAllProduct) //GET ALL PRODUCTS
+  .post(); //INSERT ONE PRODUCT
+
+router.route("/:prod")
+    .get() //GET ONE PRODUCT
+    .delete() //DELETE ONE PRODUCT
+    .put() //UPDATE ONE PRODUT
+
 
 
 module.exports.router = router

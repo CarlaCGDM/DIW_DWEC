@@ -11,7 +11,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/v1/api",v1.router)
+app.use("/v1/api", v1.router)
 
 
 const PORT = process.env.PORT || 3001
