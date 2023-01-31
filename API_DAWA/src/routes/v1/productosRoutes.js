@@ -7,10 +7,10 @@ const productosController = require("../../controllers/productosController")
 router
   .route("/")
   .get(productosController.getAllProduct) //GET ALL PRODUCTS
-  .post(); //INSERT ONE PRODUCT
+  .post(productosController.insertOneProduct); //INSERT ONE PRODUCT
 
 router.route("/:prod")
-    .get() //GET ONE PRODUCT
+    .get(productosController.getOneProduct) //GET ONE PRODUCT
     .delete() //DELETE ONE PRODUCT
     .put() //UPDATE ONE PRODUT
 

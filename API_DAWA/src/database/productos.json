@@ -21,6 +21,13 @@
       "nombre": "monster",
       "precio": "3",
       "fecha": "2023-01-22T22:13:45.531Z"
+    },
+    "undefined": {
+      "nombre": "Coca Cola",
+      "precio": 1.5,
+      "idProducto": "3d50bc30-a145-11ed-822d-5393e6781363",
+      "fecha_alta": "31/1/2023",
+      "fecha_cad": "Invalid Date"
     }
   }
 }
