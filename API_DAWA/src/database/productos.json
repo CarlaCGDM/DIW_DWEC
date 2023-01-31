@@ -22,12 +22,12 @@
       "precio": "3",
       "fecha": "2023-01-22T22:13:45.531Z"
     },
-    "undefined": {
+    "Coca Cola": {
       "nombre": "Coca Cola",
       "precio": 1.5,
-      "idProducto": "3d50bc30-a145-11ed-822d-5393e6781363",
+      "idProducto": "d05f9ea0-a14b-11ed-937e-21f9d46abcac",
       "fecha_alta": "31/1/2023",
-      "fecha_cad": "Invalid Date"
+      "fecha_cad": "31/1/2025"
     }
   }
 }

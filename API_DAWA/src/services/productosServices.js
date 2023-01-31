@@ -13,7 +13,7 @@ const insertOneProduct = (nombre, precio) => {
     const idProducto = uuid()
     const fecha_alta = new Date().toLocaleDateString()
     let fecha_cad = new Date()
-    fecha_cad.setFullYear(fecha_cad.getFullYear + 2)
+    fecha_cad.setFullYear(fecha_cad.getFullYear() + 2)
     fecha_cad = fecha_cad.toLocaleDateString()
     
     const newProduct = {

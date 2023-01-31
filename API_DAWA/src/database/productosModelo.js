@@ -1,18 +1,18 @@
-const datos = require("./productos.json")
-const fs = require("fs")
+const datos = require("./productos.json");
+const fs = require("fs");
 
 const getAllProduct = () => {
-    return datos.productos
-}
+  return datos.productos;
+};
 
 const getOneProduct = (nombreProducto) => {
-    return datos.productos[nombreProducto]
-}
+  return datos.productos[nombreProducto];
+};
 
-const insertOneProduct = (newProduct)=>{
+const insertOneProduct = (newProduct) => {
 
-
-  datos.productos[newProduct.nombreProducto] = newProduct;
+    
+  datos.productos[newProduct.nombre] = newProduct;
 
   //Escribo el producto nuevo en el fichero JSON
   fs.writeFile(
@@ -25,10 +25,10 @@ const insertOneProduct = (newProduct)=>{
   );
 
   return newProduct;
-}
+};
 
 module.exports = {
-    getAllProduct,
-    getOneProduct,
-    insertOneProduct
-}
+  getAllProduct,
+  getOneProduct,
+  insertOneProduct,
+};
