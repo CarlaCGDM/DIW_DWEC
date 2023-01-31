@@ -64,9 +64,17 @@ const putOneProduct = (req, res, next) => {
 };
 
 const deleteOneProduct = (req, res, next) => {
-  let nombreProducto = req.params.prod;
-  res.send(`<h1>DELETE ${nombreProducto}</h1>`).end();
-  res.locals.mensaje = "OK";
+  let { prod } = req.params;
+
+  const deletedProduct = productosService.deleteOneProduct(prod);
+
+  if (!deletedProduct) {
+    res.status(400).send({ mensaje: "Producto no eliminado" }).end();
+    res.locals.mensaje = "NOT OK";
+  } else {
+    res.send(deletedProduct).end();
+    res.locals.mensaje = "OK";
+  }
   next();
 };
 

@@ -1,6 +1,5 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
-const { v4: uuid } = require("uuid");
 const v1 = require("./v1/routes/indexRoutes");
 const utils = require("./utils/consoleInfo")
 const auth = require("./utils/authentication")
@@ -12,7 +11,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(utils.infoBeginOfRequest);
 app.use(auth.authenticateUser)
-app.use("/api/v1", v1, utils.infoEndOfRequest);
+app.use("/v1/api", v1, utils.infoEndOfRequest);
 
 //FUNCION Genérica de gestión de errores
 app.use((err, req, res, next) => {

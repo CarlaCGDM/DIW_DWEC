@@ -6,9 +6,20 @@ const getAllProducts = () => {
 }
 
 const getOneProduct = (nombre) => {
-    const producto = datos["productos"][nombre]
+    const producto = datos.productos[nombre]
     return producto
 }
+
+const deleteOneProduct = (nombre) => {
+  
+  delete datos.productos[nombre];
+  
+  fs.writeFileSync(
+    "./src/database/productos.json",
+    JSON.stringify(datos, null, 2),
+    "utf8"
+  );
+};
 
 /*FUNCION DE PRUEBA PARSEANDO EL JSON A ARRAY (DON'T DEAD OPEN INSIDE)
 const createOneProduct2 = (newProduct) => {
@@ -58,19 +69,19 @@ const createOneProduct = (newProduct) => {
     datos["productos"][nombre] = newProduct;
 
     //Escribo el producto nuevo en el fichero JSON
-    fs.writeFile(
+    fs.writeFileSync(
       "./src/database/productos.json",
       JSON.stringify(datos, null, 2),
-      "utf8",
-      (err)=>{
-        throw new Error("ERROR AL ESCRIBIR")
-      }
+      "utf8"
     );
 
     return newProduct;
 
 };
 
-module.exports.getAllProducts = getAllProducts
-module.exports.getOneProduct = getOneProduct
-module.exports.createOneProduct = createOneProduct
+module.exports = {
+  getAllProducts,
+  getOneProduct,
+  createOneProduct,
+  deleteOneProduct
+}
