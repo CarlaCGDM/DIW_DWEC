@@ -1,0 +1,10 @@
+Actividad2 - Entregable
+
+Ya sabemos cómo añadir un producto a nuestra Base de datos (JSON).
+Ahora tu trabajo será realizar algunas modificaciones al código que acabamos de realizar.
+
+1º Comprueba que, si dicho producto ya se encuentra en la base de datos, 
+entonces NO se trate de insertar y se devuelva una respuesta correcta al navegador
+
+2º Implementa las funcionalidades necesarias para poder Eliminar un producto
+y actualizar un producto

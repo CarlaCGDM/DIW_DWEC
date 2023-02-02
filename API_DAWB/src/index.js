@@ -5,7 +5,6 @@ const rutasV1 = require("./routes/v1/indexRoutes")
 app.use(express.json())
 app.use("/api/v1", rutasV1.router)
 
-app.use(middlewaremia(mensaje))
 
 app.use((err, req, res, next) => {
   console.log("Esta funcion captura todos los erroes de express")

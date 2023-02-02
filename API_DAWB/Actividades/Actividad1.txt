@@ -1,0 +1,12 @@
+Actividad 1.
+
+Hemos visto cómo recuperar de la base de datos (JSON) todos los productos 
+disponibles.
+En esta actividad, tendrás que implementar el código necesario para
+poder recuperar 1 producto en concreto.
+
+Para ello, establece un entry-point al servidor que contenga un parámetro 
+de ruta (que será el nombre del producto).
+
+Establece las funcionalidades en el Service y el Modelo, y devuelve 
+una respuesta correcta al navegador.
