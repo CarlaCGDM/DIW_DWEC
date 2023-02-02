@@ -20,7 +20,10 @@
     "monster": {
       "nombre": "monster",
       "precio": "3",
-      "fecha": "2023-01-22T22:13:45.531Z"
+      "categoria": "refresco con cafeina",
+      "id": "127868ed-5590-4ffc-803d-3b4656176c8b",
+      "fechaAlta": "2/2/2023",
+      "fechaModificacion": "2/2/2023"
     }
   }
 }

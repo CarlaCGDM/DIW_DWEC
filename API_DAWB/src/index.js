@@ -8,6 +8,7 @@ app.use("/api/v1", rutasV1.router)
 
 app.use((err, req, res, next) => {
   console.log("Esta funcion captura todos los erroes de express")
+  console.log(err.stack)
   res.status(500).end()
 })
 

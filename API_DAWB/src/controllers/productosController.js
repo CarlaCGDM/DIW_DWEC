@@ -15,7 +15,7 @@ const createOneProduct = (req, res, next) => {
   const { body } = req;
   console.log(body);
 
-  if (body.nombre === "" || body.precio === "" || body.categoria === "")
+  if (!body.nombre || !body.precio || !body.categoria)
     res.status(400).send({mensaje: "faltan datos"});
   else {
 
