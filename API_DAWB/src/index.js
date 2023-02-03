@@ -1,8 +1,10 @@
 const express = require("express")
 const app = express()
 const rutasV1 = require("./routes/v1/indexRoutes")
+const auth = require("./utils/authorization")
 
 app.use(express.json())
+app.use(auth.checkUser)
 app.use("/api/v1", rutasV1.router)
 
 
