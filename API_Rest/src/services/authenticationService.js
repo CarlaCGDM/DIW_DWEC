@@ -2,7 +2,7 @@ const usuariosModelo = require("../database/usuariosModelo");
 
 const checkUserEmail = (email, password) => {
   const usuario = usuariosModelo.checkUserEmail(email, password);
-  if (!usuario.id) return false;
+  if (!usuario) return false;
   return usuario.id;
 };
 

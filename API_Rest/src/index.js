@@ -1,5 +1,7 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
+const cors = require("cors")
+const path = require("path")
 const v1 = require("./v1/routes/indexRoutes");
 const utils = require("./utils/consoleInfo")
 const auth = require("./utils/authentication")
@@ -9,9 +11,23 @@ const PORT = process.env.PORT || 3001;
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors())
+app.use(express.static(path.join(__dirname, "views/landing")));
+
+const miMiddle = (req, res, next) =>{
+  console.log("EN MI MIDDLE")
+  express.static(path.join(__dirname, "views/autorizado/index2.html"))
+  next()
+}
+
 app.use(utils.infoBeginOfRequest);
-app.use(auth.authenticateUser)
+app.use("/login", auth.authenticateUser);
 app.use("/v1/api", v1, utils.infoEndOfRequest);
+
+app.use((req, res, next) => {
+  console.log("EN ULTIMO USE")
+  res.status(202).send({mensaje: "LA AUTORISASIÓ"});
+});
 
 //FUNCION Genérica de gestión de errores
 app.use((err, req, res, next) => {

@@ -1,0 +1,35 @@
+form {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+form button {
+    margin-top: 10px;
+    width: 50%;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0px 0px 15px #FFB870 !important;
+     /*Outline: es una linea que aparece por fuera del elemento para que "resalte". La quitamos para que el efecto sea el deseado */
+     /*box-shadow: el primer parametro es para el offset horizontal, el segundo
+     para el offset vertical, el tercero para lo grande de la sombra */
+}
+
+.valid {
+    display: block;
+    animation: valid 1s forwards;
+}
+
+@keyframes valid {
+    from {
+        width: 40px;
+    }
+    to {
+        width: 100px;
+    }
+}

@@ -12,6 +12,9 @@ const authenticateUser = (req, res, next) => {
   const { password, email } = req.body;
   const { cookies } = req;
 
+  console.log(req.body)
+  console.log(req.cookies);
+  
   //Si no hay datos relativos a la autenticación del usuario, se rechaza la conexión
   if (!password && !email && !cookies.sessionId) {
     res.status(401).send({ mensaje: "NO AUTORIZADO" }).end();
@@ -37,6 +40,7 @@ const authenticateUser = (req, res, next) => {
     }
 
     res.cookie("sessionId", sessionId, { hhtpOnly: true });
+
     next();
 
 
